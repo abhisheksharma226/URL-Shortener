@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    form {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.3rem;
+      margin-right: 1rem;
+    }
+
+    button {
+      background-color: #fff;
+      color: #000;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.3rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ccc;
+    }
+
+    .generated-url {
+      text-align: center;
+    }
+
+    .generated-url a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Home Page</h1>
+    <form method="POST" action="/url">
+      <label for="url">Enter the URL:</label>
+      <input type="text" name="url" id="url" placeholder="https://example.com">
+      <button type="submit">Generate</button>
+    </form>
+
+    <% if (locals.id) { %>
+      <div class="generated-url">
+        <p>URL Generated: <a href="http://localhost:3000/url/<%= id %>" target="_blank">http://localhost:3000/url/<%= id %></a></p>
+      </div>
+    <% } %> 
+  </div>
+</body>
+</html>
